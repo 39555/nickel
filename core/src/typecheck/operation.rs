@@ -243,6 +243,8 @@ pub fn get_uop_type(
         // Str -> Dyn
         #[cfg(feature = "nix-experimental")]
         UnaryOp::EvalNix => (mk_uniftype::str(), mk_uniftype::dynamic()),
+        // Str -> Str
+        UnaryOp::GetEnv => (mk_uniftype::str(), mk_uniftype::str()),
         // Because the tag isn't fixed, we can't really provide a proper static type for this
         // primop.
         // This isn't a problem, as this operator is mostly internal and pattern matching should be

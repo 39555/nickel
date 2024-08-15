@@ -384,6 +384,8 @@ pub enum NormalToken<'input> {
     ArraySlice,
     #[token("%eval_nix%")]
     EvalNix,
+    #[token("%getenv%")]
+    GetEnv,
 
     #[token("%pattern_branch%")]
     PatternBranch,

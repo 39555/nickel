@@ -1488,6 +1488,8 @@ pub enum UnaryOp {
     #[cfg(feature = "nix-experimental")]
     EvalNix,
 
+    GetEnv,
+
     /// Retrive the argument from an enum variant: `%enum/get_arg% ('Foo t) := t`
     EnumGetArg,
     /// Create an enum variant from a tag and an argument. This operator is strict in tag and
@@ -1594,6 +1596,7 @@ impl fmt::Display for UnaryOp {
 
             #[cfg(feature = "nix-experimental")]
             EvalNix => write!(f, "eval_nix"),
+            GetEnv => write!(f, "getenv"),
 
             EnumGetArg => write!(f, "enum/get_arg"),
             EnumMakeVariant => write!(f, "enum/make_variant"),

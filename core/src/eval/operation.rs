@@ -1221,6 +1221,14 @@ impl<R: ImportResolver, C: Cache> VirtualMachine<R, C> {
                     ))
                 }
             }
+            UnaryOp::GetEnv => {
+                let Term::Str(key) = &*t else {
+                    return mk_type_error!("String");
+                };
+                std::env::var(key.as_str())
+                    .map_err(|e| EvalError::Other(format!("GetEnv failed: {}", e), pos))
+                    .map(|v| Closure::atomic_closure(RichTerm::new(Term::Str(v.into()), pos)))
+            }
             UnaryOp::EnumGetArg => {
                 if let Term::EnumVariant { arg, .. } = &*t {
                     Ok(Closure {

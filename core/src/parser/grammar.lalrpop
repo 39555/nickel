@@ -1123,6 +1123,7 @@ UOp: UnaryOp = {
             })
         }
     },
+    "getenv" => UnaryOp::GetEnv,
     "enum/get_arg" => UnaryOp::EnumGetArg,
     "enum/make_variant" => UnaryOp::EnumMakeVariant,
     "enum/is_variant" => UnaryOp::EnumIsVariant,
@@ -1615,6 +1616,7 @@ extern {
         "label/push_diag" => Token::Normal(NormalToken::LabelPushDiag),
         "array/slice" => Token::Normal(NormalToken::ArraySlice),
         "eval_nix" => Token::Normal(NormalToken::EvalNix),
+        "getenv" => Token::Normal(NormalToken::GetEnv),
         "enum/get_arg" => Token::Normal(NormalToken::EnumGetArg),
         "enum/make_variant" => Token::Normal(NormalToken::EnumMakeVariant),
         "enum/is_variant" => Token::Normal(NormalToken::EnumIsVariant),
